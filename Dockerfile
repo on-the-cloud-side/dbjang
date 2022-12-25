@@ -1,11 +1,14 @@
-# Use the latest LTS version of Node
-FROM node:14
+# Use the alpine version of Node 14
+# that is half the size of a standard node image
+# also can try 14-slim
+FROM node:14-alpine
 
 # Install Angular CLI
 RUN npm install -g @angular/cli
 
 # Create a non-root user to run the application
-RUN useradd --user-group --create-home --shell /bin/false app
+# note: useradd is not available in alpine
+# RUN useradd --user-group --create-home --shell /bin/false app
 
 # Set the working directory for the application
 WORKDIR /home/app
