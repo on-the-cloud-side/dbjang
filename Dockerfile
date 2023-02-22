@@ -23,8 +23,13 @@ COPY . .
 # Set the user for the application
 # USER app
 
+# to avoid
+# Your global Angular CLI version (15.1.6) is greater than your local version (15.0.4). The local Angular CLI version is used.
+RUN ng config -g cli.warnings.versionMismatch false
+
 # Start the application
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+# Start the dev server
+CMD ["ng", "serve","--host", "0.0.0.0"]
 
 #  You can also specify the configuration file to use using the --configuration option. By default, the development configuration file (environments/environment.ts) will be used.
 #  This will use the production configuration file (environments/environment.prod.ts) to serve the application.
